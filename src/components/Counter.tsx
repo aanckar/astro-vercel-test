@@ -23,7 +23,7 @@ export default function Counter({ children }) {
         <button onClick={add}>+</button>
       </div>
       <div class="counter-message">{children}</div>
-      <input id="date-picker" class="hidden"></input>;
+      <input id="date-picker" class="hidden"></input>
     </>
   );
 }

@@ -1,6 +1,12 @@
 ---
 import Counter from '../components/Counter';
 import styles from "flatpickr/dist/themes/light.css";
+
+const ONE_WEEK_IN_SECONDS = 60 * 60 * 24 * 7;
+Astro.response.headers.set(
+  "Cache-Control",
+  `public, s-maxage=30, stale-while-revalidate=${ONE_WEEK_IN_SECONDS}`
+);
 ---
 
 <html lang="en">
@@ -22,7 +28,7 @@ import styles from "flatpickr/dist/themes/light.css";
 	</head>
 	<body>
 		<main>
-			<Counter client:visible>
+			<Counter client:load>
 				<h1>Hello, Solid!</h1>
 			</Counter>
 		</main>
