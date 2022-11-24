@@ -5,10 +5,11 @@ import { Lol } from "../../lib/types";
 
 interface Props {
   lol: Lol;
+  data: string[];
   children: JSX.Element;
 }
 
-export default function Counter({ lol, children }: Props) {
+export default function Counter(props: Props) {
   const [count, setCount] = createSignal(0);
   const add = () => setCount(count() + 1);
   const subtract = () => setCount(count() - 1);
@@ -23,13 +24,14 @@ export default function Counter({ lol, children }: Props) {
 
   return (
     <>
-      <h1>{lol}</h1>
+      <h1>{props.lol}</h1>
+      <h2>{props.data[0]}</h2>
       <div class="counter">
         <button onClick={subtract}>-</button>
         <pre>{count()}</pre>
         <button onClick={add}>+</button>
       </div>
-      <div class="counter-message">{children}</div>
+      <div class="counter-message">{props.children}</div>
       <input id="date-picker" class="hidden"></input>
     </>
   );
