@@ -1,9 +1,10 @@
 import { createSignal, JSX, onMount } from "solid-js";
 import flatpickr from "flatpickr";
 import "./Counter.css";
+import { Lol } from "../../lib/types";
 
 interface Props {
-  lol: string;
+  lol: Lol;
   children: JSX.Element;
 }
 
